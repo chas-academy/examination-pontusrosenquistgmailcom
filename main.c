@@ -38,9 +38,15 @@ int main(){
         }
 
 
-    // sum grade score and 
+    // sum grade score and check that scores are within 0 - 10
         for (int i = 0; i<13; i++){
-            total_grade_score += grade_score[i];
+            if(grade_score[i] < 11 && grade_score[i] > -1){
+                total_grade_score += grade_score[i];
+            }
+            else{
+                printf("student score: %d is too high or too low", grade_score[i]);
+                return 0;
+            }
         }
 
     //determin top student name
