@@ -2,10 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <ctype.h>
+//#include <ctype.h>
 #include <string.h>
 
-
+char to_upper_case (char a){
+    if(a > 90){
+        return a -32;
+    }
+    else{
+        return a;
+    }
+}
 
 int main(){
 
@@ -32,11 +39,13 @@ int main(){
             printf("The name \"%s\" is too long or too short (0 - 10 characters)", sz_student_name);
             return 0;
         }
-    //check and change first letter in name to uppercase
+
+        sz_student_name[0] = to_upper_case(sz_student_name[0]);
+    /*check and change first letter in name to uppercase
         if (islower(sz_student_name[0])){
             sz_student_name[0] = (toupper(sz_student_name[0]));
         }
-
+*/
 
     // sum grade score and check that scores are within 0 - 10
         for (int i = 0; i<13; i++){
@@ -63,7 +72,9 @@ int main(){
 
     }
 
+    //print top student name to console
     printf("%s\n", sz_top_student);
+    //print student names to console whose score is lower than average
     for (int i = 0; i <5; i++){
         if (student_scores[i] < overal_score/5){
             printf("%s\n", sz_student_names[i]);
