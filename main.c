@@ -9,10 +9,11 @@
 
 int main(){
 
-    char sz_top_student[55];
+    char sz_top_student[256];
     int best_score = 0;
     int overal_score = 0;
-
+    char sz_student_names[5][256];
+    int student_scores[5];
 
     for(int i = 0; i<5; i++){
 
@@ -50,12 +51,18 @@ int main(){
     //sum overal total score
         overal_score += total_grade_score;    
 
-
+    //store individual data
+        strcpy(sz_student_names[i], sz_student_name);
+        student_scores[i] = total_grade_score;
 
     }
 
     printf("%s\n", sz_top_student);
-    
+    for (int i = 0; i <5; i++){
+        if (student_scores[i] < overal_score/5){
+            printf("%s\n", sz_student_names[i]);
+        }
+    }
 
     return 0;
 }
